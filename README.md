@@ -161,13 +161,9 @@ On the production AWS Account:
                 "cloudformation:UpdateStack",
                 "cloudformation:ValidateTemplate"
             ],
-            "Resource": "arn:aws:cloudformation:us-east-2:{PROD_ACCOUNT_ID}:stack/ProdApplicationDeploymentStack/*",
+            "Resource": "arn:aws:cloudformation:ca-central-1:{PROD_ACCOUNT_ID}:stack/ProdApplicationDeploymentStack/*",
             "Effect": "Allow"
         }
     ]
 }
 ```
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
