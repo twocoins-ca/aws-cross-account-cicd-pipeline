@@ -1,3 +1,14 @@
+# Setup
+
+````
+export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
+git remote add codecommit https://git-codecommit.ca-central-1.amazonaws.com/v1/repos/repo-${ACCOUNT_ID}
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true
+
+
+````
+
 # Cross-account CI/CD Pipeline
 
 This is an example of a CodePipeline cross-account CI/CD pipeline. The pipeline leverages CodeCommit as a Git repository, CodeBuild to package the source code for a sample Lambda and to build a CloudFormation template for our application. Moreover, the pipeline uses CodeDeploy to deploy the sample application. In this example, the pipeline is provisioned on a development account, and deploys the sample application on both the development (the same as the pipeline) and the production account (specified by the user).
