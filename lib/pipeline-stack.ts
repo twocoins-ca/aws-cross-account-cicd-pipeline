@@ -143,7 +143,7 @@ export class PipelineStack extends Stack {
           ],
         },
         {
-          stageName: 'Deploy_Dev',
+          stageName: 'Deploy_LocalSanity',
           actions: [
             new codepipeline_actions.CloudFormationCreateUpdateStackAction({
               actionName: 'Deploy',
@@ -158,12 +158,12 @@ export class PipelineStack extends Stack {
           ],
         },
         {
-          stageName: 'Deploy_Prod',
+          stageName: 'Deploy_OpImpact_SBX',
           actions: [
             new codepipeline_actions.CloudFormationCreateUpdateStackAction({
               actionName: 'Deploy',
               templatePath: cdkBuildOutput.atPath('ProdApplicationStack.template.json'),
-              stackName: 'ProdApplicationDeploymentStack',
+              stackName: 'OpImpactDeployementStack',
               adminPermissions: true,
               parameterOverrides: {
                 ...props.prodApplicationStack.lambdaCode.assign(lambdaBuildOutput.s3Location),
