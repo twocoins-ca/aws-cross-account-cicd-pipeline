@@ -34,7 +34,7 @@ export class PipelineStack extends Stack {
     const prodAccountRootPrincipal = new iam.AccountPrincipal(props.prodAccountId);
 
     const randomID: string = Math.random().toString().substr(2, 8);
-    const key = new kms.Key(this, 'ArtifactKey', {
+    const key = new kms.Key(this, 'ArtifactKey'+`${randomID}`, {
       alias: 'key/artifact-key:'+`${randomID}`,
     });
     key.grantDecrypt(prodAccountRootPrincipal);
