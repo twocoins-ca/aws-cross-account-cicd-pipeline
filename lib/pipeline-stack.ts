@@ -1,6 +1,3 @@
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: MIT-0
-
 import cloudformation = require('@aws-cdk/aws-cloudformation');
 import codebuild = require('@aws-cdk/aws-codebuild');
 import codecommit = require('@aws-cdk/aws-codecommit');
@@ -148,7 +145,7 @@ export class PipelineStack extends Stack {
             new codepipeline_actions.CloudFormationCreateUpdateStackAction({
               actionName: 'Deploy',
               templatePath: cdkBuildOutput.atPath('DevApplicationStack.template.json'),
-              stackName: 'DevApplicationDeploymentStack',
+              stackName: 'LocalApplicationDeploymentStack',
               adminPermissions: true,
               parameterOverrides: {
                 ...props.devApplicationStack.lambdaCode.assign(lambdaBuildOutput.s3Location),
