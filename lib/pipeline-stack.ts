@@ -22,7 +22,7 @@ export class PipelineStack extends Stack {
 
     super(app, id, props);
 
-    const repository = codecommit.Repository.fromRepositoryName(this, 'CodeCommitRepo', `repo-${this.account}`);
+    const repository = codecommit.Repository.fromRepositoryName(this, 'CodeCommitRepo', `opimpact-repo-${this.account}`);
 
     const prodDeploymentRole = iam.Role.fromRoleArn(this, 'ProdDeploymentRole', `arn:aws:iam::${props.prodAccountId}:role/CloudFormationDeploymentRole`, {
       mutable: false
