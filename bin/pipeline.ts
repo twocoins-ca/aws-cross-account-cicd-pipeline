@@ -13,9 +13,9 @@ const prodAccountId = app.node.tryGetContext('prod-account') || process.env.CDK_
 
 new RepositoryStack(app, 'RepositoryStack');
 
-const devApplicationStack = new ApplicationStack(app, 'DevApplicationStack', { stageName: 'dev' });
+const devApplicationStack = new ApplicationStack(app, 'DevApplicationStack', { stageName: 'beta' });
 const prodApplicationStack = new ApplicationStack(app, 'ProdApplicationStack', { stageName: 'sbx' });
-new PipelineStack(app, 'CrossAccount-PipelineStack', {
+new PipelineStack(app, 'CrossAccountPipelineStack', {
   devApplicationStack: devApplicationStack,
   prodApplicationStack: prodApplicationStack,
   prodAccountId: prodAccountId,
