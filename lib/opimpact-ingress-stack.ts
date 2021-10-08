@@ -1,25 +1,22 @@
-// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: MIT-0
-
 import codedeploy = require('@aws-cdk/aws-codedeploy');
 import lambda = require('@aws-cdk/aws-lambda');
 import apigateway = require('@aws-cdk/aws-apigateway');
 import { App, Stack, StackProps } from '@aws-cdk/core';
 
-export interface ApplicationStackProps extends StackProps {
+export interface OpImpactIngressStackProps extends StackProps {
   readonly stageName: string;
 }
 
-export class ApplicationStack extends Stack {
+export class OpImpactIngressStack extends Stack {
   public readonly lambdaCode: lambda.CfnParametersCode;
 
-  constructor(app: App, id: string, props: ApplicationStackProps) {
+  constructor(app: App, id: string, props: OpImpactIngressStackProps) {
     super(app, id, props);
 
     this.lambdaCode = lambda.Code.fromCfnParameters();
 
     const func = new lambda.Function(this, 'Lambda', {
-      functionName: 'OpImpactLambda',
+      functionName: 'OpImpactHealtCheckLambda',
       code: this.lambdaCode,
       handler: 'index.handler',
       runtime: lambda.Runtime.NODEJS_12_X,
@@ -28,9 +25,9 @@ export class ApplicationStack extends Stack {
       }
     });
 
-    new apigateway.LambdaRestApi(this, 'OpImpactLambdaRestApi', {
+    new apigateway.LambdaRestApi(this, 'OpImpactHealthCheckLambdaRestApi', {
       handler: func,
-      endpointExportName: 'OpImpactLambdaRestApiEmdpoint',
+      endpointExportName: 'OpImpactHealthCheckLambdaRestApi',
       deployOptions: {
         stageName: props.stageName
       }
