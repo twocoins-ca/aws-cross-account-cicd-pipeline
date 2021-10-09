@@ -12,7 +12,7 @@ new RepositoryStack(app, 'RepositoryStack');
 
 const devApplicationStack = new ApplicationStack(app, 'DevApplicationStack', { stageName: 'beta' });
 const prodApplicationStack = new ApplicationStack(app, 'ProdApplicationStack', { stageName: 'sbx' });
-new PipelineStack(app, 'OpImpact-PipelineStack', {
+new PipelineStack(app, 'OpImpact-PipelineStack-a', {
   devApplicationStack: devApplicationStack,
   prodApplicationStack: prodApplicationStack,
   prodAccountId: prodAccountId,

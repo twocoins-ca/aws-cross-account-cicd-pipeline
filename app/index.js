@@ -4,7 +4,7 @@
 exports.handler = async (event) => {
     const response = {
         statusCode: 200,
-        body: `HealthCheck from ${process.env.STAGE_NAME} environment!\n`,
+        body: `HealthCheck at ${process.env.STAGE_NAME} environment!\n`,
     };
     return response;
 };
