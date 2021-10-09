@@ -21,22 +21,21 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.125.0",
-    "@aws-cdk/aws-codecommit": "^1.125.0",
-    "@aws-cdk/aws-codepipeline": "^1.125.0",
-    "@aws-cdk/aws-codepipeline-actions": "^1.125.0",
-    "@aws-cdk/aws-dynamodb": "^1.125.0",
-    "@aws-cdk/aws-iam": "^1.125.0",
-    "@aws-cdk/aws-lambda": "^1.125.0",
-    "@aws-cdk/aws-lambda-destinations": "^1.125.0",
-    "@aws-cdk/aws-s3": "^1.125.0",
-    "@aws-cdk/aws-s3-notifications": "^1.125.0",
-    "@aws-cdk/aws-sns": "^1.125.0",
-    "@aws-cdk/core": "^1.125.0",
-    "@aws-cdk/pipelines": "^1.125.0",
-    "@types/uuid": "7.0.2",
-    "source-map-support": "^0.5.16",
-    "netmask": ">=2.0.1",
-    "y18n": ">=4.0.1"
+    "@aws-cdk/aws-apigateway": "^1.127.0",
+    "@aws-cdk/aws-codecommit": "^1.127.0",
+    "@aws-cdk/aws-codepipeline-actions": "^1.127.0",
+    "@aws-cdk/aws-dynamodb": "^1.127.0",
+    "@aws-cdk/aws-iam": "^1.127.0",
+    "@aws-cdk/aws-lambda": "^1.127.0",
+    "@aws-cdk/aws-lambda-destinations": "^1.127.0",
+    "@aws-cdk/aws-s3": "^1.127.0",
+    "@aws-cdk/aws-s3-notifications": "^1.127.0",
+    "@aws-cdk/aws-sns": "^1.127.0",
+    "@aws-cdk/core": "^1.127.0",
+    "@aws-cdk/pipelines": "^1.127.0",
+    "@types/aws-lambda": "^8.10.83",
+    "netmask": "^2.0.2",
+    "source-map-support": "^0.5.20",
+    "y18n": "^5.0.8"
   }
 }
